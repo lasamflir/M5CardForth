@@ -3077,7 +3077,7 @@ GPIO2 OUTPUT pinMode
 : m5button? ( -- n ) GPIO0 digitalRead 0 = if 1 else 0 then ; 
 ( setup M5Cardputer console )
 : m5autoexec s" /spiffs/autoexec.fs" 2dup file-exists? if included else 2drop then ;
-: m5keyboardchk m5button? 0= if m5key-off else m5key-on m5autoexec then ;
+: m5keyboardchk m5button? 0= if m5key-off m5type-off else m5key-on m5type-on m5autoexec then ;
 m5keyboardchk
 m5gfx-off
 led OUTPUT pinMode
